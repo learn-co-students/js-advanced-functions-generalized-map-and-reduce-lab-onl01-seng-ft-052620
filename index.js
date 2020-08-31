@@ -11,8 +11,8 @@ function map(array, method){
 
 
 function reduce(array, method, start){
-    let total = (!!start) ? start : array[0]
-    let i = (!!start) ? 0 : 1
+    let total = !!start ? start : array[0]
+    let i = !!start ? 0 : 1
   
     for (; i < array.length; i++) {
       total = method(array[i], total)
