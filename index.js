@@ -8,3 +8,13 @@ function map(array, method) {
     }
     return r
 }
+
+function reduce(array, method, start) {
+    let total = !!!start ? start : array[0]
+    let i = !!start ? 0 : 1
+
+    for (; i < array.length; i++) {
+        total = method(array[i], total)
+    }
+    return total
+}
