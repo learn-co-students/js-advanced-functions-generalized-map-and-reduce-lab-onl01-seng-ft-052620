@@ -1,7 +1,26 @@
 function map(array, fn) {
-    return array.map(e => fn(e))
+    let newArray = []
+
+    for (const element of array) {
+        newArray.push(fn(element))
+    }
+    return newArray
 }
 
 function reduce(array, fn, startingPoint) {
-    return startingPoint ? array.reduce(fn, startingPoint) : array.reduce(fn)
+    let memo
+    startingPoint ? memo = startingPoint : memo = array.shift()
+    for (const element of array) {
+        memo = fn(element, memo)
+    }   
+    return memo
 }
+
+
+// function map(array, fn) {
+//     return array.map(e => fn(e))
+// }
+
+// function reduce(array, fn, startingPoint) {
+//     return startingPoint ? array.reduce(fn, startingPoint) : array.reduce(fn)
+// }
